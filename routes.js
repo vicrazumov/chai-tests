@@ -1,3 +1,5 @@
+const express = require('express');
+
 const api = require('./api');
 const apiError = require('./api/apiError');
 
@@ -15,6 +17,8 @@ const initRoutes = app => {
   app.delete('/api/orders/:orderId', (req, res) => api.deleteOrder(req, res));
 
   app.get('/api/products', (req, res) => api.getProducts(req, res));
+
+  app.get('/', express.static(__dirname + '/public/index.html'));
 
   app.all('*', (req, res) => res.apiError(404, ERROR_404_MESSAGE));
 };
