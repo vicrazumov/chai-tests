@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
+    "prestart": "npm i && cd client && npm i",
     "start": "concurrently --kill-others \"node index.js\" \"cd client && npm run start\""
   },
   "author": "Viktor Razumov",
